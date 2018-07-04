@@ -1,0 +1,60 @@
+<STYLE>
+BODY
+{
+    FONT-SIZE: 10px;
+    MARGIN: 0px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    BACKGROUND-COLOR: #ffffff
+}
+TABLE.tabla1
+{
+    BORDER-RIGHT: #BD5D1A 1px solid;
+    BORDER-TOP: #BD5D1A 1px solid;
+    BORDER-LEFT: #BD5D1A 1px solid;
+    BORDER-BOTTOM: #BD5D1A 1px solid;
+    BORDER-COLLAPSE: collapse;
+    border-spacing: 0; 
+	
+}
+TABLE.tabla1 TD
+{
+    BORDER-RIGHT: #D0D7E5 1px solid;
+    BORDER-TOP: #D0D7E5 1px solid;
+    BORDER-LEFT: #D0D7E5 1px solid;
+    BORDER-BOTTOM: #D0D7E5 1px solid;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	white-space:nowrap;
+	PADDING-RIGHT: 5px;
+    PADDING-LEFT: 5px;
+	
+}
+TABLE.tabla1 TH
+{
+    BORDER-RIGHT: #63a7de 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: #63a7de 1px solid;
+    PADDING-LEFT: 5px;
+    BACKGROUND: url(imagenes/table_header1.jpg) #75bdf7 repeat-x 50% bottom;
+    PADDING-BOTTOM: 5px;
+    BORDER-LEFT: #63a7de 1px solid;
+    PADDING-TOP: 5px;
+    BORDER-BOTTOM: #63a7de 1px solid;
+    HEIGHT: 20px
+}
+	
+#blocker {
+            Z-INDEX: 2000;
+            BACKGROUND:#000000; /*: #000; */
+            FILTER: alpha(opacity=70);
+            LEFT: 0px;
+            WIDTH: 100%;
+            POSITION: absolute;
+            TOP: 0px;
+            HEIGHT: 100%;
+            opacity: 0;
+            moz-opacity: 0;
+			}
+
+
+</STYLE>
