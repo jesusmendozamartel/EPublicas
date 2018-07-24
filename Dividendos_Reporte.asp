@@ -50,7 +50,10 @@ Response.Charset= "ISO-8859-1"
 	wend
 		
 	Response.Write("</table>")
-	Response.Write("<span style='color:#FF0000'><font size='3pt'>(*) Según las Notas a los Estados Financieros son dividendos.</font></span>")
-
+	
+	if annio <= 2016 then
+      Response.Write("<span style='color:#FF0000'><font size='3pt'>(*) Según las Notas a los Estados Financieros son dividendos.</font></span>")
+    end if 
+	
 	rs.close
 %>
