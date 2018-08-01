@@ -8,6 +8,8 @@
 	gcon=Request.QueryString("gcon")
 	SecSic=Request.QueryString("secsic")
 	niv=Request.QueryString("niv")
+	data=Request.QueryString("data")
+	
 	SQL = ""
 
 	Select Case rep
@@ -15,6 +17,14 @@
 		SQL = "select distinct anio as cod, anio as des from DirEmpresasSICON order by anio desc"
 	Case "anioBC"
 		SQL = "select distinct anio as cod, anio as des from SICONPRO_BALCOM_1 order by anio desc"
+	'-------------
+	Case "anioAnexo"
+		SQL = "SELECT DISTINCT ANO_EJE AS cod, ANO_EJE as des FROM "& data &" order by ANO_EJE DESC"
+	Case "gcont_Anexo"
+		SQL = "sp_lista_GrupoContable_Anexo "& data &","& anio	
+	Case "codigo_Anexo"
+		SQL = "sp_lista_codigos_Anexo "& anio &",'"& gcon &"',"& niv
+	'----------------------		
 	Case "gcont_RepAnio"
 		SQL = "sp_lista_GrupoContable_Anioeeff "& anio &","& eeff
 	Case "gcontBC_RepAnio"

@@ -60,6 +60,7 @@ Response.Charset= "ISO-8859-1"
 	response.write("<td width='76%'  valign='top'><table class='tabla1' border='0'>")
 
 	SQL="EXEC sp_lista_directorioBC_AnioGContNiv '"&annio&"','"&nivel&"','"&codigo&"','"&gcont&"','"&detalle&"'"
+	
 	SQL2=" exec sp_lista_reporteDatosCSI_AnioGContNiv '"&annio&"','"&nivel&"','"&codigo&"','"&gcont&"','"&detalle&"'"
 
 	Set rs = Server.CreateObject("ADODB.Recordset")	

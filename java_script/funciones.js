@@ -32,12 +32,14 @@ function ActualizarAnio(){
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 function cargaVariableEF(estadofinanciero)
 {
+	//alert(estadofinanciero);return false;
+	
 	var xannio=document.getElementById('cboAnio').value;
 	var xNiv=document.getElementById('cboNivel').value;
 	var xcod=Enumerable.From($('#cboCodigo option:selected')).Select(function (x) { return x.value }).ToArray().join();
 	var xGrupoCont=document.getElementById('cboGruCon').value;
-	//var xSecSic=document.getElementById('cboSecSicon').value;
 	var xdet=document.getElementById('cboDetalle').value;
+	var moneda=document.getElementById('cboMoneda').value;
 
 	if (xannio==''){
 		alert ('Seleccione Año');
@@ -55,17 +57,10 @@ function cargaVariableEF(estadofinanciero)
 	muestra();
 	var url= ''
 
-	if(estadofinanciero=='BG')
-		{var url= 'BalanceGeneral_Reporte.asp';}
-	if (estadofinanciero=='EG')
-		{var url= 'EstGananyPerdidas_Reporte.asp';}
-	if (estadofinanciero=='FE')
-		{var url= 'EstFlujoEfectivo_Reporte.asp';}
-	if (estadofinanciero=='CP')
-		{var url= 'CambioPatrimonio_Reporte.asp';}
+	var url= estadofinanciero+'_Reporte.asp';	
+		
 
-	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&gcont='+xGrupoCont+'&detalle='+xdet;
-	//url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&secsic='+xSecSic+'&detalle='+xdet;
+	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&gcont='+xGrupoCont+'&detalle='+xdet+'&moneda='+moneda;
 	
 	//alert(url);
 	conexion2.open('POST',url, true);
@@ -362,18 +357,18 @@ function cargaSistemaInter3(valor,estadofinanciero){
 	}
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
-function  procesaVariables(){
- //alert("entro");
+function procesaVariables(){
+
    if (conexion2.readyState == 4){
 	   if(conexion2.responseText == 1 || conexion2.responseText == 0 ){
 		  	alert("No se encontraron registros!");
 		}else{
-   //alert(conexion2.responseText);
-		   	document.getElementById('DivVariables').innerHTML = conexion2.responseText;
-			
+   			//alert(conexion2.responseText);
+			document.getElementById('DivVariables').innerHTML = conexion2.responseText;
 		}
 	oculta();
   } 
+
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 function muestra(){
@@ -421,11 +416,11 @@ function ExcelEF(estadofinanciero)
 	var xNiv=document.getElementById('cboNivel').value;
 	var xcod=Enumerable.From($('#cboCodigo option:selected')).Select(function (x) { return x.value }).ToArray().join();
 	var xGrupoCont=document.getElementById('cboGruCon').value;
-	//var xSecSic=document.getElementById('cboSecSicon').value;
 	var xdet=document.getElementById('cboDetalle').value;
 	var cboCod=document.getElementById('cboCodigo');
 	var cboDet=document.getElementById('cboDetalle');
-
+	var moneda=document.getElementById('cboMoneda').value;
+	
 	var xcodText= cboCod.options[cboCod.selectedIndex].text;
 	var xdetText= cboDet.options[cboDet.selectedIndex].text;
 
@@ -441,17 +436,9 @@ function ExcelEF(estadofinanciero)
 		return false;
 	}
 
-	var url= ''
-	if(estadofinanciero=='BG')
-		{var url= 'BalanceGeneral_ReporteExcel.asp';}
-	if (estadofinanciero=='EG')
-		{var url= 'EstGananyPerdidas_ReporteExcel.asp';}
-	if (estadofinanciero=='FE')
-		{var url= 'EstFlujoEfectivo_ReporteExcel.asp';}
-	if (estadofinanciero=='CP')
-		{var url= 'CambioPatrimonio_ReporteExcel.asp';}
+	var url= estadofinanciero+'_ReporteExcel.asp';
 
-	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&gcont='+xGrupoCont+'&detalle='+xdet+'&codText='+xcodText+'&detText='+xdetText;
+	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&gcont='+xGrupoCont+'&detalle='+xdet+'&codText='+xcodText+'&detText='+xdetText+'&eeff='+estadofinanciero+'&moneda='+moneda;
 	//alert(url);
 	document.fmrEF.action=url;
 	document.fmrEF.submit();

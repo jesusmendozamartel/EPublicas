@@ -196,7 +196,7 @@ Response.Charset= "ISO-8859-1"
 
 	Response.Charset = "UTF-8"
 	response.ContentType = "application/vnd.ms-excel" 
-	response.AddHeader "Content-Disposition", "attachment; filename="+Archivo+".xls" 
+	response.AddHeader "Content-Disposition", "attachment; filename="+Archivo+"_"+annio+".xls"  
 	Response.Charset = "UTF-8"
 	Response.Write("<table ><tr><td colspan='10' align='center'  style=""font-family:Arial, Helvetica, sans-serif; font-size:20px; color:#003300"">"&Titulo&"</td></tr><tr><td>&nbsp;&nbsp;</td></tr><tr>")
 

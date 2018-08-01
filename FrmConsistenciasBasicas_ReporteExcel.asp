@@ -26,7 +26,7 @@
 
 	Response.Charset = "UTF-8"
 	response.ContentType = "application/vnd.ms-excel" 
-	response.AddHeader "Content-Disposition", "attachment; filename="&Archivo&".xls"
+	response.AddHeader "Content-Disposition", "attachment; filename="+Archivo+"_"+annio+".xls" 
 
 response.Write("MIME-Version: 1.0" &vbCr) 
 response.Write("X-Document-Type: Workbook" &vbCr) 

@@ -196,7 +196,7 @@ a.a3 {
 	color: #008BC0;
 }
 </style>
-<body onload="InicializaFiltros();">
+<body onLoad="InicializaFiltros();">
 <div id="blocker" name="blocker" style="display:none;" ><table width="100%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td align="center" valign="middle"><center><img src="Imagenes/progressbar.gif"></img></center></td>
@@ -231,20 +231,20 @@ a.a3 {
 <form action="CambioPatrimonio.asp" name="fmrEF" method="post" target=_self>
 
  	<a class="a2">&nbsp;&nbsp;Periodo</a>
- 	<select name="cboAnio" id="cboAnio" class="combo2" onchange="cargaGContable();"></select>
+ 	<select name="cboAnio" id="cboAnio" class="combo2" onChange="cargaGContable();"></select>
 
 	<A id="detalle" class=a2>&nbsp;&nbsp;Detalle</A>
-	<select name="cboDetalle" id="cboDetalle" class="combo2" onchange="switchCodigo();">
+	<select name="cboDetalle" id="cboDetalle" class="combo2" onChange="switchCodigo();">
 		<option value='0'>Por empresa</option>
 		<option value='1'>Agrupado</option>
 	</select>
 	
 	<A class=a2>&nbsp;&nbsp;Tipo</A>
-	<select name="cboGruCon" id="cboGruCon" style="width:200px" class="combo2" onchange="cargaCodigos();">
+	<select name="cboGruCon" id="cboGruCon" style="width:200px" class="combo2" onChange="cargaCodigos();">
 	</select>
 
 	<A class=a2>&nbsp;&nbsp;Nivel</A>
-	<select name="cboNivel" id="cboNivel" class="combo2" onchange="cargaCodigos();">
+	<select name="cboNivel" id="cboNivel" class="combo2" onChange="cargaCodigos();">
         <option value="5" selected="selected">Nv AE 101</option>
         <option value="10" >Nv AE 54</option>
         <option value="11" >Nv AE 14</option>
@@ -256,7 +256,8 @@ a.a3 {
     </select>
 
     <a class="a2">&nbsp;&nbsp;</a>
-	<button onClick="cargaVariableEF('CP'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/search.png) no-repeat;" alt="Buscar Consulta"></button>
+	<button onClick="cargaVariableEF('CambioPatrimonio'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/search.png) no-repeat;" alt="Buscar Consulta"></button>
+		<button onClick="ExcelEF('CambioPatrimonio'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/excel.png) no-repeat;" alt="Exportar a Excel"></button>
 
 <br>
 

@@ -16,10 +16,12 @@
 
 <% Response.expires = 0 
 	if Session("tipoAcceso")="" then 
-		'Response.redirect "login.html"
 	end if
+	
 	ruta="imagenes"
-	''Response.Write Session("id_usuario")
+	titulo="ANEXO 7 - ACTIVOS INTANGIBLES Y OTROS ACTIVOS"
+	pagina="Anexo7"
+	tabla="anexo7_res"
 %>
 
 <script type="text/javascript">
@@ -33,7 +35,7 @@
 
 	function CargarAnio()
 	{
-		CargaFiltro("cboAnio",'Filtros.asp?rep=anio','cargaGContable');
+		CargaFiltro("cboAnio",'Filtros.asp?rep=anioAnexo&data="<%=tabla%>"','cargaGContable');
 	}
 
 	function cargaSectorSicon(){
@@ -43,7 +45,7 @@
 
 	function cargaGContable(){
 		var Anio = document.getElementById("cboAnio").value;
-		CargaFiltro("cboGruCon",'Filtros.asp?rep=gcont_RepAnio&anio='+Anio+'&eeff="01"','cargaCodigos');
+		CargaFiltro("cboGruCon",'Filtros.asp?rep=gcont_Anexo&data="<%=tabla%>"&anio='+Anio+'','cargaCodigos');
 	}
 
 	function cargaCodigos(){
@@ -59,9 +61,8 @@
 		else{
 			var Anio = document.getElementById("cboAnio").value;
 			var GruCont = document.getElementById("cboGruCon").value;
-			//var SecSicon = document.getElementById("cboSecSicon").value;
 			
-			CargaFiltro("cboCodigo",'Filtros.asp?rep=codigo_AnioeeffGConNiv&anio='+Anio+'&eeff=01&gcon='+GruCont+'&niv='+nivel,'');
+			CargaFiltro("cboCodigo",'Filtros.asp?rep=codigo_Anexo&anio='+Anio+'&gcon='+GruCont+'&niv='+nivel,'');
 		}
 	}
 
@@ -187,10 +188,11 @@ a.a3 {
   </tr>          
 </table>
 
-<strong>
-<br>
-<font face="Arial" size='3pt' color='#000000'>Balance General</font></strong>
-<form action="BalanceGeneral.asp" name="fmrEF" method="post" target=_self>
+<div align="center"><strong>
+  <br>
+  <font face="Arial" size='3pt' color='#00 0000'><%=titulo%></font></strong> <br />
+</div>
+<form action="<%=pagina%>.asp" name="fmrEF" method="post" target=_self>
 
  	<a class="a2">&nbsp;&nbsp;Periodo</a>
  	<select name="cboAnio" id="cboAnio" class="combo2" onChange="cargaGContable();"></select>
@@ -216,10 +218,16 @@ a.a3 {
 
 	<select name="cboCodigo" id="cboCodigo" class="combo2" style="width:320px">
     </select>
+	
+	<select name="cboMoneda" id="cboMoneda" class="combo2">
+        <option value="0" selected="selected">Soles</option>
+        <option value="1" >Miles de Soles</option>
+        <option value="2" >Millones de Soles</option>
+    </select>
 
     <a class="a2">&nbsp;&nbsp;</a>
-	<button onClick="cargaVariableEF('BalanceGeneral'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/search.png) no-repeat;" alt="Buscar Consulta"></button>
-	<button onClick="ExcelEF('BalanceGeneral'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/excel.png) no-repeat;" alt="Exportar a Excel"></button>
+	<button onClick="cargaVariableEF('<%=pagina%>'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/search.png) no-repeat;" alt="Buscar Consulta"></button>
+	<button onClick="ExcelEF('<%=pagina%>'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/excel.png) no-repeat;" alt="Exportar a Excel"></button>
 <br>
 
 <!--<div id="DivVariables" style="overflow:auto;height='400 px'; width='100%'"></div>-->
