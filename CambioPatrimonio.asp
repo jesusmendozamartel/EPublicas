@@ -254,7 +254,13 @@ a.a3 {
 
 	<select name="cboCodigo" id="cboCodigo" class="combo2" style="width:320px">
     </select>
-
+	
+	<select name="cboMoneda" id="cboMoneda" class="combo2">
+	<option value="0" selected="selected">Soles</option>
+	<option value="1" >Miles de Soles</option>
+	<option value="2" >Millones de Soles</option>
+</select>
+	
     <a class="a2">&nbsp;&nbsp;</a>
 	<button onClick="cargaVariableEF('CambioPatrimonio'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/search.png) no-repeat;" alt="Buscar Consulta"></button>
 		<button onClick="ExcelEF('CambioPatrimonio'); return false;" style="border:none;height:21px; width:21px;background: url(imagenes/excel.png) no-repeat;" alt="Exportar a Excel"></button>

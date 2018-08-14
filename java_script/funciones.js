@@ -52,17 +52,14 @@ function cargaVariableEF(estadofinanciero)
 		document.getElementById('cboCodigo').focus();
 		return false;
 	}
-
+	
 	conexion2=Ajax();
 	muestra();
 	var url= ''
 
 	var url= estadofinanciero+'_Reporte.asp';	
-		
-
 	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&gcont='+xGrupoCont+'&detalle='+xdet+'&moneda='+moneda;
 	
-	//alert(url);
 	conexion2.open('POST',url, true);
 	conexion2.setRequestHeader('Content-Type', 'text/html');
 	conexion2.setRequestHeader('encoding', 'iso-8859-1');
