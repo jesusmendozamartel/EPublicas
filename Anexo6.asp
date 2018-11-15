@@ -62,7 +62,7 @@
 			var Anio = document.getElementById("cboAnio").value;
 			var GruCont = document.getElementById("cboGruCon").value;
 			
-			CargaFiltro("cboCodigo",'Filtros.asp?rep=codigo_Anexo&anio='+Anio+'&gcon='+GruCont+'&niv='+nivel,'');
+			CargaFiltro("cboCodigo",'Filtros.asp?rep=codigo_Anexo&data="<%=tabla%>"&anio='+Anio+'&gcon='+GruCont+'&niv='+nivel,'');
 		}
 	}
 

@@ -67,6 +67,40 @@ function cargaVariableEF(estadofinanciero)
 	conexion2.send(null);		
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+function CargaReporte(pagina,tipo)
+{
+	//alert(pagina);return false;
+	
+	var xannio=document.getElementById('cboAnio').value;
+
+	if (xannio==''){
+		alert ('Seleccione Año');
+		document.getElementById('cboAnio').focus();
+		return false;
+	}
+
+	conexion2=Ajax();
+	muestra();
+	var url= ''
+
+	var url= pagina+'.asp';	
+	url=url+'?annio='+xannio;
+
+	//alert(url);
+	if (tipo==1){
+		conexion2.open('POST',url, true);
+		conexion2.setRequestHeader('Content-Type', 'text/html');
+		conexion2.setRequestHeader('encoding', 'iso-8859-1');
+		conexion2.onreadystatechange = procesaVariables;
+		conexion2.send(null);	
+	}else{
+		document.fmrEF.action=url;
+		document.fmrEF.submit();
+		document.fmrEF.target='_self';
+		oculta();
+	}
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 function cargaDetCamPat(CodiEnt)
 {
 	var xannio=document.getElementById('cboAnio').value;

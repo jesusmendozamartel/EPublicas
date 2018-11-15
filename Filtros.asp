@@ -23,7 +23,7 @@
 	Case "gcont_Anexo"
 		SQL = "sp_lista_GrupoContable_Anexo "& data &","& anio	
 	Case "codigo_Anexo"
-		SQL = "sp_lista_codigos_Anexo "& anio &",'"& gcon &"',"& niv
+		SQL = "sp_lista_codigos_Anexo "& data &","& anio &",'"& gcon &"',"& niv
 	'----------------------		
 	Case "gcont_RepAnio"
 		SQL = "sp_lista_GrupoContable_Anioeeff "& anio &","& eeff
