@@ -218,9 +218,9 @@ a.a3 {
     </select>
 	
 	<select name="cboMoneda" id="cboMoneda" class="combo2">
-        <option value="0" selected="selected">Soles</option>
-        <option value="1" >Miles de Soles</option>
-        <option value="2" >Millones de Soles</option>
+       <option value="0" selected="selected">Soles</option>
+        <!--  <option value="1" >Miles de Soles</option>
+        <option value="2" >Millones de Soles</option>-->
     </select>
 	
     <a class="a2">&nbsp;&nbsp;</a>

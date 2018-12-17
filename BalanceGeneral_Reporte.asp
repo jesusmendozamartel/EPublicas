@@ -62,6 +62,10 @@ Response.Charset= "ISO-8859-1"
 	SQL="EXEC sp_lista_directorio_RepAnioGContNiv '01','"&annio&"','"&nivel&"','"&codigo&"','"&gcont&"','"&detalle&"'"
 	SQL2=" exec sp_lista_reporteDatos_RepAnioGContNiv '01','"&annio&"','"&nivel&"','"&codigo&"','"&gcont&"','"&detalle&"'"
 
+'response.Write(sql)
+'response.Write(sql2)
+'response.End()
+
 	Set rs = Server.CreateObject("ADODB.Recordset")	
 	rs.CursorLocation=3
     rs.Open sql, con
@@ -77,10 +81,6 @@ Response.Charset= "ISO-8859-1"
 	wend 
 	rs.Close
 	Set rs=Nothing
-
-	'if detalle =0 then
-	''	X1=X1-1 'TODAS LAS CABECERAS MENOS SECTOR, PORQUE TODOS SON S111
-	'end if
 
 	for j=0 to X1
 		response.write("<tr>")

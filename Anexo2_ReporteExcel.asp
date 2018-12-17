@@ -283,7 +283,7 @@ ntabla=12
 				elseif IsNumeric(dato) and moneda="1" and dato>"0" then
 					response.write("<td align='right'>"&FormatNumber(dato,3)&"</td>")
 				elseif IsNumeric(dato) and moneda="2" and dato>"0" then
-					response.write("<td align='right'>"&FormatNumber(dato,6)&"</td>")
+					response.write("<td align='right'>"&FormatNumber(dato,0)&"</td>")
 				else
 					Response.Write("<td align='right'>"&dato&"</td>")
 				end if

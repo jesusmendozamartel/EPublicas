@@ -64,7 +64,7 @@
 	
 		for i=k to x
 			if (i>=6 and i<=x) then alig="left" else if (i=0) then alig="left" else alig="left" End if End if
-		Response.Write("<td  align="&alig&">"&Rs(i)&"</td>")
+		Response.Write("<td align="&alig&">"&Rs(i)&"</td>")
 	
 		next
 		Response.Write("</tr>")
@@ -75,4 +75,4 @@
 
 	rs.close
 
-%>
+%> 
