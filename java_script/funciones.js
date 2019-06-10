@@ -67,6 +67,70 @@ function cargaVariableEF(estadofinanciero)
 	conexion2.send(null);		
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+function CargaFonafe(tipo)
+{
+	//alert(estadofinanciero);return false;
+	
+	var xannio=document.getElementById('cboAnio').value;
+	var xtrim=document.getElementById('cboTrim').value;
+	var xNiv=document.getElementById('cboNivel').value;
+	var xcod=Enumerable.From($('#cboCodigo option:selected')).Select(function (x) { return x.value }).ToArray().join();
+	var xdet=document.getElementById('cboDetalle').value;
+
+	if (xannio==''){
+		alert ('Seleccione Año');
+		document.getElementById('cboAnio').focus();
+		return false;
+	}
+
+	if (xcod==''){
+		alert ('Seleccione Sector');			
+		document.getElementById('cboCodigo').focus();
+		return false;
+	}
+	
+	conexion2=Ajax();
+	muestra();
+	var url= ''
+
+	var url= tipo+'_Reporte.asp';	
+	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&detalle='+xdet+'&xtrim='+xtrim;
+	
+	conexion2.open('POST',url, true);
+	conexion2.setRequestHeader('Content-Type', 'text/html');
+	conexion2.setRequestHeader('encoding', 'iso-8859-1');
+	conexion2.onreadystatechange = procesaVariables;
+	conexion2.send(null);		
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+function CargaFonafeExcel(tipo)
+{
+	var xannio=document.getElementById('cboAnio').value;
+	var xtrim=document.getElementById('cboTrim').value;
+	var xNiv=document.getElementById('cboNivel').value;
+	var xcod=Enumerable.From($('#cboCodigo option:selected')).Select(function (x) { return x.value }).ToArray().join();
+	var xdet=document.getElementById('cboDetalle').value;
+	
+	if (xannio=='')  {
+		alert ('Seleccione Año');
+		document.getElementById('cboAnio').focus();
+		return false;
+	}
+
+	if (xcod==''){
+		alert ('Seleccione Sector');			
+		document.getElementById('cboCodigo').focus();
+		return false;
+	}
+
+	var url= tipo+'_ReporteExcel.asp'; 
+	url=url+'?annio='+xannio+'&nivel='+xNiv+'&codigo='+xcod+'&detalle='+xdet+'&xtrim='+xtrim;
+
+	document.fmrEF.action=url;
+	document.fmrEF.submit();
+	document.fmrEF.target='_self';
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 function CargaReporte(pagina,tipo)
 {
 	//alert(pagina);return false;
@@ -174,6 +238,32 @@ function cargaDirectorioExcel()
 
 	var url= 'Directorio_ReporteExcel.asp';
 	url=url+'?annio='+xannio;
+
+	document.fmrEF.action=url;
+	document.fmrEF.submit();
+	document.fmrEF.target='_self';
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+function cargaDirectorio_f()
+{
+
+	conexion2=Ajax();
+	muestra();
+	var url= ''
+
+	var url= 'Directorio_f_Reporte.asp';
+
+	conexion2.open('POST',url, true);
+	conexion2.setRequestHeader('Content-Type', 'text/html');
+	conexion2.setRequestHeader('encoding', 'iso-8859-1');
+	conexion2.onreadystatechange = procesaVariables;
+	conexion2.send(null);
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
+function cargaDirectorioExcel_f()
+{
+
+	var url= 'Directorio_f_ReporteExcel.asp';
 
 	document.fmrEF.action=url;
 	document.fmrEF.submit();

@@ -9,7 +9,8 @@
 	SecSic=Request.QueryString("secsic")
 	niv=Request.QueryString("niv")
 	data=Request.QueryString("data")
-	
+	tabla=Request.QueryString("tabla")
+
 	SQL = ""
 
 	Select Case rep
@@ -38,6 +39,20 @@
 	Case "codigo_AnioeeffSecSicNiv"
 		SQL = "sp_lista_codigos_AnioeeffSecSicNiv "& anio &",'"& eeff &"','"& SecSic &"',"& niv	
 
+	'---------------------------------------------    FONAFE     --------------------------------------------------------------------------------------------
+	Case "anio_fonafe"
+
+		SQL = "SELECT DISTINCT ANO_EJE as cod, ANO_EJE as des FROM "+ tabla +" ORDER BY ANO_EJE DESC"
+
+	Case "periodo_fonafe"
+
+		SQL = "SELECT DISTINCT PERIODO as cod,(CASE PERIODO WHEN '1' THEN 'TRIM1' WHEN '2' THEN 'TRIM2' WHEN '3' THEN 'TRIM3' WHEN '4' THEN 'TRIM4' ELSE 'ANUAL' END) as des FROM "+tabla+" WHERE ANO_EJE='"& anio &"' ORDER BY des DESC" 
+
+	Case "codigo_AnioNiv_fonafe"
+
+		SQL = "sp_lista_codigos_AnioGrupoNiv_fonafe "& niv &",'"& tabla &"','"& anio &"','"& per &"'"
+		
+	'--------------------------------------------------------------------------------------------------------------------------------------------------------
 	End Select
 
 	Set rs = Server.CreateObject("ADODB.Recordset")

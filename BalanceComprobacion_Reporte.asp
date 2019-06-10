@@ -63,6 +63,10 @@ Response.Charset= "ISO-8859-1"
 	SQL="EXEC sp_lista_directorioBC_AnioGContNiv '"&annio&"','"&nivel&"','"&codigo&"','"&gcont&"','"&detalle&"'"
 	SQL2=" exec sp_lista_reporteDatosBC_AnioGContNiv '"&annio&"','"&nivel&"','"&codigo&"','"&gcont&"','"&detalle&"'"
 
+	'response.write(SQL)
+	'response.write(SQL2)
+	'response.end	
+
 	Set rs = Server.CreateObject("ADODB.Recordset")	
 	rs.CursorLocation=3
     rs.Open sql, con
@@ -94,7 +98,7 @@ Response.Charset= "ISO-8859-1"
 			end if
 
 			if i Mod 2 = 0 then
-				response.write("<td align='center' bgcolor='#ffffff'>"&dato&"</td>")
+				response.write("<td align='center' bgcolor='#ffffff' >"&dato&"</td>")
 				
 			else
 				response.write("<td align='center' bgcolor='#E3EEF7'>"&dato&"</td>")

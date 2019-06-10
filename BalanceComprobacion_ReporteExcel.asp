@@ -281,9 +281,9 @@ Response.Charset= "ISO-8859-1"
 			end if
 
 			if i Mod 2 = 0 then			
-				Response.Write("<td align='center' bgcolor='#ffffff' "&format&">"&dato&"</td>")
+				Response.Write("<td align='center' bgcolor='#ffffff' style='mso-number-format:\@;' >"&dato&"</td>")
 			else
-				Response.Write("<td align='center' bgcolor='#E3EEF7' "&format&">"&dato&"</td>")
+				Response.Write("<td align='center' bgcolor='#E3EEF7' style='mso-number-format:\@;'>"&dato&"</td>")
 			end if
 
 		next
